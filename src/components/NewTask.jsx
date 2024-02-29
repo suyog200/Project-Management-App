@@ -5,9 +5,11 @@ export default function NewTask({onAdd}) {
 
     function handleTaskChange(event) {
         setEnteredTask(event.target.value);
+        event.preventDefault();
     }
 
     function handleClick() {
+        if(!enteredTask.trim()) return;
         onAdd(enteredTask);
         setEnteredTask('');
     }
